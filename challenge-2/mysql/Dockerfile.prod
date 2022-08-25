@@ -1,0 +1,10 @@
+FROM mysql:5.7
+
+ENV MYSQL_DATABASE=nodedb
+ENV MYSQL_ROOT_PASSWORD=root
+
+EXPOSE 3306
+
+CMD [ "--innodb-use-native-aio=0" ]
+
+COPY V1_initial.sql /docker-entrypoint-initdb.d/
